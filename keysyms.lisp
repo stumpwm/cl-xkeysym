@@ -26,7 +26,8 @@
 
 (defpackage #:cl-xkeysym
   (:use #:cl)
-  (:export #:keysym-name->keysym #:keysym->keysym-name))
+  (:export #:keysym-name->keysym #:keysym->keysym-name
+           #:modifier))
 
 (in-package #:cl-xkeysym)
 
@@ -51,6 +52,12 @@
       (gethash keysym *keysym-name-translations*)
     (declare (ignore present-p))
     value))
+
+(defun modifier? (keysym)
+  (member keysym
+          (list #xffe1 #xffe2 #xffe3 #xffe4 #xffe5 #xffe6
+                #xffe7 #xffe8 #xffe9 #xffea #xffeb #xffec
+                #xffed #xffee)))
 
 (define-keysym #xffffff "VoidSymbol")   ;Void symbol
 (define-keysym #xff08 "BackSpace")      ;Back space, back char
