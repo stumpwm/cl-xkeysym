@@ -27,7 +27,7 @@
 (defpackage #:cl-xkeysym
   (:use #:cl)
   (:export #:keysym-name->keysym #:keysym->keysym-name
-           #:modifier))
+           #:modifier?))
 
 (in-package #:cl-xkeysym)
 
